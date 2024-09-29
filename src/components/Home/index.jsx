@@ -1,5 +1,13 @@
-import Landing from "../Landing";
-import SmoothScroll from "../SmoothScroll";
+import Image from "next/image";
+import dynamic from "next/dynamic";
+import SmoothScroll from "@/components/SmoothScroll/index";
+
+const Landing = dynamic(() => import("@/components/Landing/index"), {
+  ssr: false,
+  loading: () => (
+    <Image src="/placeholder.png" alt="Loading..." width={200} height={200} />
+  ),
+});
 
 const Home = () => {
   return (
